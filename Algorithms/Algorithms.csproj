@@ -59,6 +59,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sorting\MergeSorter.cs" />
     <Compile Include="Sorting\MergeSorterTests.cs" />
+    <Compile Include="Sorting\Quicksorter.cs" />
+    <Compile Include="Sorting\QuicksorterTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
