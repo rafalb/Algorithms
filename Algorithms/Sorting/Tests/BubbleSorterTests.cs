@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
 
-namespace Algorithms.Sorting
+namespace Algorithms.Sorting.Tests
 {
     [TestFixture]
     internal class BubbleSorterTests

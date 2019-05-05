@@ -1,22 +1,22 @@
-﻿using NUnit.Framework;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using NUnit.Framework;
 
-namespace Algorithms.Sorting
+namespace Algorithms.Sorting.Tests
 {
     [TestFixture]
-    internal class MergeSorterTests
+    internal class InsertionSorterTests
     {
         [Test]
         public void ShouldSortEmptyArray()
         {
-            var sorter = new MergeSorter<int>();
+            var sorter = new InsertionSorter<int>();
 
             int[] items = { };
-            sorter.MergeSort(items);
+            sorter.InsertionSort(items);
 
             Assert.IsEmpty(items);
         }
@@ -24,10 +24,10 @@ namespace Algorithms.Sorting
         [Test]
         public void ShouldSortTwoItems()
         {
-            var sorter = new MergeSorter<int>();
+            var sorter = new InsertionSorter<int>();
 
             int[] items = { 8, 3 };
-            sorter.MergeSort(items);
+            sorter.InsertionSort(items);
 
             Assert.AreEqual(new int[] { 3, 8 }, items);
         }
@@ -35,10 +35,10 @@ namespace Algorithms.Sorting
         [Test]
         public void ShouldSortMultipleItems()
         {
-            var sorter = new MergeSorter<int>();
+            var sorter = new InsertionSorter<int>();
 
             int[] items = { 8, 3, 4, 12, 73, 1, 3, 4, 5 };
-            sorter.MergeSort(items);
+            sorter.InsertionSort(items);
 
             Assert.AreEqual(new int[] { 1, 3, 3, 4, 4, 5, 8, 12, 73 }, items);
         }

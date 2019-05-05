@@ -6,21 +6,21 @@ using System.Threading.Tasks;
 
 namespace Algorithms.Sorting
 {
-    public class Quicksorter<T> where T : IComparable
+    public class QuickSorter<T> where T : IComparable
     {
-        public void Quicksort(T[] items)
+        public void QuickSort(T[] items)
         {
-            Quicksort(items, 0, items.Length - 1);
+            QuickSort(items, 0, items.Length - 1);
         }
 
-        private void Quicksort(T[] items, int startIndex, int endIndex)
+        private void QuickSort(T[] items, int startIndex, int endIndex)
         {
             if (endIndex > startIndex)
             {
                 int splitIndex = Split(items, startIndex, endIndex);
 
-                Quicksort(items, startIndex, splitIndex - 1);
-                Quicksort(items, splitIndex + 1, endIndex);
+                QuickSort(items, startIndex, splitIndex - 1);
+                QuickSort(items, splitIndex + 1, endIndex);
             }
         }
 
