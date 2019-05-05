@@ -11,9 +11,9 @@ namespace Algorithms.Sorting
         public int[] CountingSort(int[] items, int maxValue)
         {
             int[] itemCount = CalculateItemCount(items, maxValue);
-            int[] predecessorCount = CountPredecessors(itemCount, maxValue);
+            int[] smallerOrEqualCount = CountSmallerOrEqualItems(itemCount, maxValue);
 
-            int[] sortedItems = SortCounted(items, predecessorCount);
+            int[] sortedItems = SortCounted(items, smallerOrEqualCount);
             return sortedItems;
         }
 
@@ -37,27 +37,28 @@ namespace Algorithms.Sorting
             return itemCount;
         }
 
-        private int[] CountPredecessors(int[] itemCount, int maxValue)
+        private int[] CountSmallerOrEqualItems(int[] itemCount, int maxValue)
         {
-            int[] predecessorCount = new int[maxValue + 1];
+            int[] smallerOrEqualCount = new int[maxValue + 1];
 
             for (int i = 1; i < itemCount.Length; i++)
             {
-                predecessorCount[i] = itemCount[i - 1] + predecessorCount[i - 1];
+                smallerOrEqualCount[i] = itemCount[i] + smallerOrEqualCount[i - 1];
             }
 
-            return predecessorCount;
+            return smallerOrEqualCount;
         }
 
-        private static int[] SortCounted(int[] items, int[] predecessorCount)
+        private static int[] SortCounted(int[] items, int[] smallerOrEqualCount)
         {
             var sortedItems = new int[items.Length];
 
-            for (int i = 0; i < items.Length; i++)
+            for (int i = items.Length - 1; i >= 0; i--)
             {
                 int item = items[i];
-                int sortedIndex = predecessorCount[item];
+                int sortedIndex = smallerOrEqualCount[item] - 1;
                 sortedItems[sortedIndex] = item;
+                smallerOrEqualCount[item]--;
             }
 
             return sortedItems;

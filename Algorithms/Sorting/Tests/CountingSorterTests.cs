@@ -20,6 +20,15 @@ namespace Algorithms.Sorting.Tests
         }
 
         [Test]
+        public void ShouldNotAllowItemsOutOfRange()
+        {
+            var sorter = new CountingSorter();
+            int[] items = { 3, 1, 5, 4 };
+
+            Assert.Throws<ArgumentOutOfRangeException>(() => sorter.CountingSort(items, 4));
+        }
+
+        [Test]
         public void ShouldSortSingleItem()
         {
             var sorter = new CountingSorter();
@@ -55,15 +64,6 @@ namespace Algorithms.Sorting.Tests
 
             int[] expected = { 1, 1, 3, 4, 4, 4, 5, 5 };
             Assert.AreEqual(expected, result);
-        }
-
-        [Test]
-        public void ShouldNotAllowItemsOutOfRange()
-        {
-            var sorter = new CountingSorter();
-            int[] items = { 3, 1, 5, 4 };
-
-            Assert.Throws<ArgumentOutOfRangeException>(() => sorter.CountingSort(items, 4));
         }
     }
 }
