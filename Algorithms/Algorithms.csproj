@@ -51,7 +51,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DynamicProgramming\LongestCommonSubsequence.cs" />
     <Compile Include="DynamicProgramming\LongestCommonSubsequenceBruteForce.cs" />
+    <Compile Include="DynamicProgramming\Tests\LongestCommonSubsequenceTests.cs" />
     <Compile Include="DynamicProgramming\Tests\LongestCommonSubsequenceBruteForceTests.cs" />
     <Compile Include="Sorting\BubbleSorter.cs" />
     <Compile Include="Sorting\CountingSorter.cs" />
