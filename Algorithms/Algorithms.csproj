@@ -63,6 +63,8 @@
     <Compile Include="Sorting\Tests\MergeSorterTests.cs" />
     <Compile Include="Sorting\QuickSorter.cs" />
     <Compile Include="Sorting\Tests\QuicksorterTests.cs" />
+    <Compile Include="Trees\BinarySearchTree.cs" />
+    <Compile Include="Trees\Tests\BinarySearchTreeTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
