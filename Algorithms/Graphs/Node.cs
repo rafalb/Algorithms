@@ -31,5 +31,10 @@ namespace Algorithms.Graphs
         {
             neighbours.Add(neighbour);
         }
+
+        public override string ToString()
+        {
+            return value.ToString();
+        }
     }
 }

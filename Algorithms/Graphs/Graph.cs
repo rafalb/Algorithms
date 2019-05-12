@@ -15,11 +15,24 @@ namespace Algorithms.Graphs
             get { return nodes.ToArray(); }
         }
 
+        public Node<T> GetNode(T value)
+        {
+            return nodes.FirstOrDefault(n => n.Value.Equals(value));
+        }
+
         public Node<T> AddNode(T value, params Node<T>[] neighbours)
         {
             var node = new Node<T>(value, neighbours);
             nodes.Add(node);
             return node;
+        }
+
+        public void AddNodes(params T[] values)
+        {
+            foreach (var value in values)
+            {
+                AddNode(value);
+            }
         }
 
         public void AddEdge(Node<T> from, Node<T> to)
@@ -28,6 +41,14 @@ namespace Algorithms.Graphs
             {
                 from.AddNeighbour(to);
             }
+        }
+
+        public void AddEdge(T fromValue, T toValue)
+        {
+            Node<T> from = GetNode(fromValue);
+            Node<T> to = GetNode(toValue);
+
+            AddEdge(from, to);
         }
     }
 }
