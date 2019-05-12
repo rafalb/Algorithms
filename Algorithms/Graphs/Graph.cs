@@ -15,30 +15,18 @@ namespace Algorithms.Graphs
             get { return nodes.ToArray(); }
         }
 
-        public void AddNode(T value, params Node<T>[] neighbours)
+        public Node<T> AddNode(T value, params Node<T>[] neighbours)
         {
             var node = new Node<T>(value, neighbours);
+            nodes.Add(node);
+            return node;
         }
 
-        public void AddEdge(Node<T> from, Node<T> to, bool bidirectional)
+        public void AddEdge(Node<T> from, Node<T> to)
         {
-            if (from != null && to != null && nodes.Remove(from) && nodes.Remove(to))
+            if (from != null && to != null)
             {
-                List<Node<T>> newNeighbours = new List<Node<T>>(from.Neighbours);
-                newNeighbours.Add(to);
-
-                Node<T> new1 = new Node<T>(from.Value, newNeighbours);
-                nodes.Add(new1);
-
-                newNeighbours = new List<Node<T>>(to.Neighbours);
-
-                if (bidirectional)
-                {
-                    newNeighbours.Add(from);
-                }
-
-                Node<T> new2 = new Node<T>(to.Value, newNeighbours);
-                nodes.Add(new2);
+                from.AddNeighbour(to);
             }
         }
     }

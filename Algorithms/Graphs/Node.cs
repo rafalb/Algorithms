@@ -9,12 +9,12 @@ namespace Algorithms.Graphs
     public class Node<T>
     {
         private T value;
-        private Node<T>[] neighbours;
+        private List<Node<T>> neighbours = new List<Node<T>>();
 
         public Node(T value, IEnumerable<Node<T>> neighbours)
         {
             this.value = value;
-            this.neighbours = neighbours.ToArray();
+            this.neighbours.AddRange(neighbours);
         }
 
         public T Value
@@ -25,6 +25,11 @@ namespace Algorithms.Graphs
         public IEnumerable<Node<T>> Neighbours
         {
             get { return neighbours; }
+        }
+
+        public void AddNeighbour(Node<T> neighbour)
+        {
+            neighbours.Add(neighbour);
         }
     }
 }
