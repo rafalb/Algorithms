@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Algorithms.DynamicProgramming
 {
-    public class LongestCommonSubsequence
+    public class LongestCommonSubsequenceRecursive
     {
         public string FindLongestCommonSubsequence(string s1, string s2)
         {

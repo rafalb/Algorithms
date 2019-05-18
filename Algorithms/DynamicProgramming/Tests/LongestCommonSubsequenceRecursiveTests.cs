@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 namespace Algorithms.DynamicProgramming.Tests
 {
     [TestFixture]
-    internal class LongestCommonSubsequenceTests
+    internal class LongestCommonSubsequenceRecursiveTests
     {
-        private LongestCommonSubsequence subsequenceFinder;
+        private LongestCommonSubsequenceRecursive subsequenceFinder;
 
         [SetUp]
         public void SetUp()
         {
-            subsequenceFinder = new LongestCommonSubsequence();
+            subsequenceFinder = new LongestCommonSubsequenceRecursive();
         }
 
         [Test]
