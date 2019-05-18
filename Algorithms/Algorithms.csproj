@@ -51,8 +51,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DynamicProgramming\LongestCommonSubsequenceDynamic.cs" />
     <Compile Include="DynamicProgramming\LongestCommonSubsequenceRecursive.cs" />
     <Compile Include="DynamicProgramming\LongestCommonSubsequenceBruteForce.cs" />
+    <Compile Include="DynamicProgramming\Tests\LongestCommonSubsequenceDynamicTests.cs" />
     <Compile Include="DynamicProgramming\Tests\LongestCommonSubsequenceRecursiveTests.cs" />
     <Compile Include="DynamicProgramming\Tests\LongestCommonSubsequenceBruteForceTests.cs" />
     <Compile Include="Graphs\BreadthFirstSearcher.cs" />
