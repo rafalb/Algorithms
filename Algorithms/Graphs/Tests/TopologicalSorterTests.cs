@@ -21,26 +21,26 @@ namespace Algorithms.Graphs.Tests
         [Test]
         public void ShouldGiveEmptyResultForEmptyGraph()
         {
-            var nodes = sorter.TopologicalSort(new Graph<int>());
+            var vertices = sorter.TopologicalSort(new Graph<int>());
 
-            Assert.IsEmpty(nodes);
+            Assert.IsEmpty(vertices);
         }
 
         [Test]
         public void ShouldSortSingleNodeGraph()
         {
             var graph = new Graph<int>();
-            var node = graph.AddNode(5);
-            var nodes = sorter.TopologicalSort(graph);
+            var vertex = graph.AddVertex(5);
+            var vertices = sorter.TopologicalSort(graph);
 
-            Assert.AreSame(node, nodes.Single());
+            Assert.AreSame(vertex, vertices.Single());
         }
 
         [Test]
         public void ShouldSortMultipleNodesGraph()
         {
             var graph = new Graph<char>();
-            graph.AddNodes('u', 'v', 'w', 'x', 'y', 'z');
+            graph.AddVertices('u', 'v', 'w', 'x', 'y', 'z');
             graph.AddEdge('v', 'y');
             graph.AddEdge('u', 'v');
             graph.AddEdge('u', 'x');
@@ -50,10 +50,10 @@ namespace Algorithms.Graphs.Tests
             graph.AddEdge('w', 'z');
             graph.AddEdge('w', 'y');
 
-            var nodes = sorter.TopologicalSort(graph);
+            var vertices = sorter.TopologicalSort(graph);
 
             var expected = "wzuvyx";
-            var actual = new string(nodes.Select(n => n.Value).ToArray());
+            var actual = new string(vertices.Select(v => v.Value).ToArray());
 
             Assert.AreEqual(expected, actual);
         }

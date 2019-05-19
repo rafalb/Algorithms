@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Algorithms.Graphs
 {
-    public class Node<T>
+    public class Vertex<T>
     {
         private T value;
-        private List<Node<T>> neighbours = new List<Node<T>>();
+        private List<Vertex<T>> neighbours = new List<Vertex<T>>();
 
-        public Node(T value, IEnumerable<Node<T>> neighbours)
+        public Vertex(T value, IEnumerable<Vertex<T>> neighbours)
         {
             this.value = value;
             this.neighbours.AddRange(neighbours);
@@ -22,12 +22,12 @@ namespace Algorithms.Graphs
             get { return value; }
         }
 
-        public IEnumerable<Node<T>> Neighbours
+        public IEnumerable<Vertex<T>> Neighbours
         {
             get { return neighbours; }
         }
 
-        public void AddNeighbour(Node<T> neighbour)
+        public void AddNeighbour(Vertex<T> neighbour)
         {
             neighbours.Add(neighbour);
         }

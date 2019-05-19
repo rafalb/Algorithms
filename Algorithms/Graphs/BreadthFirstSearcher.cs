@@ -8,26 +8,26 @@ namespace Algorithms.Graphs
 {
     public class BreadthFirstSearcher<T>
     {
-        public IDictionary<Node<T>, int> BreadthFirstSearch(Node<T> startNode)
+        public IDictionary<Vertex<T>, int> BreadthFirstSearch(Vertex<T> startVertex)
         {
-            var distances = new Dictionary<Node<T>, int>();
-            var visited = new HashSet<Node<T>>();
-            var queue = new Queue<Node<T>>();
+            var distances = new Dictionary<Vertex<T>, int>();
+            var visited = new HashSet<Vertex<T>>();
+            var queue = new Queue<Vertex<T>>();
 
-            visited.Add(startNode);
-            distances[startNode] = 0;
-            queue.Enqueue(startNode);
+            visited.Add(startVertex);
+            distances[startVertex] = 0;
+            queue.Enqueue(startVertex);
 
             while (queue.Any())
             {
-                Node<T> node = queue.Dequeue();
+                Vertex<T> vertex = queue.Dequeue();
 
-                foreach (var neighbour in node.Neighbours)
+                foreach (var neighbour in vertex.Neighbours)
                 {
                     if (!visited.Contains(neighbour))
                     {
                         visited.Add(neighbour);
-                        distances[neighbour] = distances[node] + 1;
+                        distances[neighbour] = distances[vertex] + 1;
                         queue.Enqueue(neighbour);
                     }
                 }

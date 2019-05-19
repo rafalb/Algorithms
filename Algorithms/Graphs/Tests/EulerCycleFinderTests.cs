@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Algorithms.Graphs.Tests
 {
     [TestFixture]
-    internal class NodeTests
+    public class EulerCycleFinderTests
     {
     }
 }

@@ -8,34 +8,34 @@ namespace Algorithms.Graphs
 {
     public class Graph<T>
     {
-        private List<Node<T>> nodes = new List<Node<T>>();
+        private List<Vertex<T>> vertices = new List<Vertex<T>>();
 
-        public IEnumerable<Node<T>> Nodes
+        public IEnumerable<Vertex<T>> Vertices
         {
-            get { return nodes.ToArray(); }
+            get { return vertices.ToArray(); }
         }
 
-        public Node<T> GetNode(T value)
+        public Vertex<T> GetVertex(T value)
         {
-            return nodes.FirstOrDefault(n => n.Value.Equals(value));
+            return vertices.FirstOrDefault(n => n.Value.Equals(value));
         }
 
-        public Node<T> AddNode(T value, params Node<T>[] neighbours)
+        public Vertex<T> AddVertex(T value, params Vertex<T>[] neighbours)
         {
-            var node = new Node<T>(value, neighbours);
-            nodes.Add(node);
-            return node;
+            var vertex = new Vertex<T>(value, neighbours);
+            vertices.Add(vertex);
+            return vertex;
         }
 
-        public void AddNodes(params T[] values)
+        public void AddVertices(params T[] values)
         {
             foreach (var value in values)
             {
-                AddNode(value);
+                AddVertex(value);
             }
         }
 
-        public void AddEdge(Node<T> from, Node<T> to)
+        public void AddEdge(Vertex<T> from, Vertex<T> to)
         {
             if (from != null && to != null)
             {
@@ -45,8 +45,8 @@ namespace Algorithms.Graphs
 
         public void AddEdge(T fromValue, T toValue)
         {
-            Node<T> from = GetNode(fromValue);
-            Node<T> to = GetNode(toValue);
+            Vertex<T> from = GetVertex(fromValue);
+            Vertex<T> to = GetVertex(toValue);
 
             AddEdge(from, to);
         }

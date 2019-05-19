@@ -8,35 +8,35 @@ namespace Algorithms.Graphs
 {
     public class TopologicalSorter
     {
-        public IEnumerable<Node<T>> TopologicalSort<T>(Graph<T> graph)
+        public IEnumerable<Vertex<T>> TopologicalSort<T>(Graph<T> graph)
         {
-            var visitedNodes = new HashSet<Node<T>>();
-            var processedNodes = new Stack<Node<T>>();
+            var visitedVertices = new HashSet<Vertex<T>>();
+            var processedVertices = new Stack<Vertex<T>>();
 
-            foreach (var node in graph.Nodes)
+            foreach (var vertices in graph.Vertices)
             {
-                if (!visitedNodes.Contains(node))
+                if (!visitedVertices.Contains(vertices))
                 {
-                    Visit(node, visitedNodes, processedNodes);
+                    Visit(vertices, visitedVertices, processedVertices);
                 }
             }
 
-            return processedNodes;
+            return processedVertices;
         }
 
-        private void Visit<T>(Node<T> node, ISet<Node<T>> visitedNodes, Stack<Node<T>> processedNodes)
+        private void Visit<T>(Vertex<T> vertex, ISet<Vertex<T>> visitedVertices, Stack<Vertex<T>> processedVertices)
         {
-            visitedNodes.Add(node);
+            visitedVertices.Add(vertex);
 
-            foreach (var neighbour in node.Neighbours)
+            foreach (var neighbour in vertex.Neighbours)
             {
-                if (!visitedNodes.Contains(neighbour))
+                if (!visitedVertices.Contains(neighbour))
                 {
-                    Visit(neighbour, visitedNodes, processedNodes);
+                    Visit(neighbour, visitedVertices, processedVertices);
                 }
             }
 
-            processedNodes.Push(node);
+            processedVertices.Push(vertex);
         }
     }
 }
